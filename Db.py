@@ -5,7 +5,8 @@ try:
     connection = mysql.connector.connect(
         host="localhost",
         user="root",
-        password=""
+        password="",
+        database="python_TP_DB"
     )
     print("Connected to MySQL Server")
 except mysql.connector.Error as err:
