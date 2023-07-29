@@ -8,7 +8,6 @@ try:
         password="",
         database="python_TP_DB"
     )
-    print("Connected to MySQL Server")
 except mysql.connector.Error as err:
     print(f"Error: {err}")
 
@@ -16,7 +15,7 @@ Tables = {
     'users': """
         CREATE TABLE users(
             user_id INT AUTO_INCREMENT PRIMARY KEY,
-            user_name VARCHAR(50),
+            user_name VARCHAR(50) UNIQUE,
             first_name VARCHAR(30),
             last_name VARCHAR(30),
             email VARCHAR(50),

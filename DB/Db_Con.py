@@ -10,7 +10,6 @@ def db_connector():
             password="",
             database="python_TP_DB"
         )
-        print("Connected to MySQL Server")
         return connection
     except mysql.connector.Error as err:
         print(f"Error: {err}")
