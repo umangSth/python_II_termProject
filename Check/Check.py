@@ -52,3 +52,27 @@ def Is_Username_Unique(username):
     except mysql.connector.Error as err:
         print(f"Error: {err}")
         return False  # return false on error
+
+
+def check_answer_input(user_answer):
+    try:
+        user_answer = int(user_answer)
+        if 1 <= user_answer <= 4:
+            return user_answer
+        else:
+            return check_answer_input(input("Invalid input. Please enter a number between 1 and 4."))
+    except ValueError:
+        return check_answer_input(input("Invalid input. Please enter a number between 1 and 4."))
+
+
+def is_answer_correct(q_id, user_answer):
+    try:
+        connection = Db_Con.db_connector()
+        with connection.cursor() as cursor:
+            cursor.execute("USE python_TP_DB")
+            cursor.execute("SELECT * FROM correct_answers WHERE q_id = %s and answer = %s", (q_id, user_answer,))
+            result = cursor.fetchone()
+            return not (result is None)  # If result is None, the user answer is incorrect
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
+        return None  # None when error
