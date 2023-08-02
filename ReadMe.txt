@@ -1,3 +1,7 @@
+Instruction:
+First, run file Db.py to set the database schema and data. And, just run Main.py
+
+
 Create a multiuser Python application that tests the knowledge of a certain topic. 
 Your application should have at least 20 questions stored in database of your choice and each time the user starts the application, 5 of these questions are selected randomly. 
 Before attempting a quiz, create an account for each user (if they do not have one) or allow them to login.
