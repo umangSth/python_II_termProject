@@ -13,10 +13,10 @@ Tables = {
     CREATE TABLE questions(
             q_id INT AUTO_INCREMENT PRIMARY KEY,
             question VARCHAR(150),
-            answer_1 VARCHAR(30),
-            answer_2 VARCHAR(30),
-            answer_3 VARCHAR(30),
-            answer_4 VARCHAR(30)
+            answer_1 VARCHAR(100),
+            answer_2 VARCHAR(100),
+            answer_3 VARCHAR(100),
+            answer_4 VARCHAR(100)
         )
     """,
     'correct_answer': """

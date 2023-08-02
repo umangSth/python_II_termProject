@@ -107,10 +107,10 @@ def quiz_history_view():
             q_no += 1
             total_score += score
             scores.append(score)
-        print(f"Average score: {total_score/(q_no-1)}")
+        print(f"Average score: {(total_score/(q_no-1)):.2f}")
         min_score, max_score = quiz.get_high_low_score(scores)
         print(f"Your highest score is: {max_score} and lowest score is: {min_score}")
-        time.sleep(2)
+        time.sleep(5)
 
     return 0
 

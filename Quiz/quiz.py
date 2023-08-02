@@ -39,7 +39,7 @@ def display_score_message(total_correct):
     elif total_correct == 5:
         print("You are a genius!")
     print(f"Percentage: {percentage}%")
-    time.sleep(2)
+    time.sleep(4)
 
 
 def upload_score(user_id, score):
