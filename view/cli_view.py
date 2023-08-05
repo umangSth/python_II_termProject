@@ -52,6 +52,7 @@ def main_cli_loop():
             break
         else:
             print("Invalid choice. Please try again!!")
+            time.sleep(2)
 
 
 def login_view():
@@ -67,6 +68,7 @@ def login_view():
     response = password_view(user_name)
     while response == -1:
         print("Invalid Password, Try-again!!!")
+        time.sleep(2)
         response = password_view(user_name)
 
     if response == 1:

@@ -54,6 +54,7 @@ def main_cli_loop():
             break
         else:
             print("Invalid choice. Please try again!!")
+            time.sleep(2)
 
 
 def quiz_view():
@@ -65,6 +66,7 @@ def quiz_view():
 
     if not questions:
         print("No questions found for the quiz.")
+        time.sleep(2)
         return
     q_no = 1
     for question in questions:
