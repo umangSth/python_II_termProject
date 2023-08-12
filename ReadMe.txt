@@ -1,5 +1,8 @@
 Instruction:
-First, run file Db.py to set the database schema and data. And, just run Main.py
+First, run file Db.py in PyCharm Community edition
+to set up the database schema and data. And, just run Main.py in root folder
+to run the application you can use PyCharm for this or
+Cmd(for different experience use Cmd). 
 
 
 Create a multiuser Python application that tests the knowledge of a certain topic. 
