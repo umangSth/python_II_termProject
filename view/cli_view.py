@@ -5,12 +5,13 @@ import time
 import os
 
 
+# Clear the terminal screen
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+# Clear the screen and display a message
 def clear_and_prompt(message):
-    # print("\n" * 50)
     # Clear the screen
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -21,12 +22,14 @@ def clear_and_prompt(message):
     print(message, end="")
 
 
+# Display a welcome message
 def display_welcome_message():
     clear_and_prompt("\n__________________________________"
                      "\nWelcome to Test your knowledge"
                      "\n__________________________________\n")
 
 
+# Prompt the user for their action choice
 def prompt_for_action():
     print("Please select an option:\n"
           "1. Login\n"
@@ -36,6 +39,7 @@ def prompt_for_action():
     return choice
 
 
+# Main loop for the command-line interface
 def main_cli_loop():
     while True:
         display_welcome_message()
@@ -55,6 +59,7 @@ def main_cli_loop():
             time.sleep(2)
 
 
+# Display the login view
 def login_view():
     clear_screen()
     print("LOGIN\n")
@@ -73,11 +78,12 @@ def login_view():
 
     if response == 1:
         print("Login Successful.")
-        #  here goes the calling to function that will do something after successful login
+        # Call the function that handles actions after successful login
         time.sleep(1)
         home.main_cli_loop()
 
 
+# Display the registration view
 def register_view():
     clear_screen()
     print("Welcome, to Registration:\n ")
@@ -91,6 +97,7 @@ def register_view():
     time.sleep(2)
 
 
+# Display the password entry view
 def password_view(user_name):
     password = ck.Check_String(input("Enter your password: "))
     response = User_Auth.user_password_chk(user_name, password)

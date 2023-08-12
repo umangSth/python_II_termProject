@@ -5,6 +5,7 @@ import mysql.connector
 from DB import Db_Con
 
 
+# Function to check if a value is not empty
 def Check_String(value):
     if value != "":
         return value
@@ -12,6 +13,7 @@ def Check_String(value):
         return Check_String(input("Invalid input(Null), try again:"))
 
 
+# Function to check if an email is valid using regex
 def Check_Email(value):
     regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     email = Check_String(value)
@@ -21,6 +23,7 @@ def Check_Email(value):
         return Check_Email(input("Invalid email, try Again:"))
 
 
+# Function to check if a password is valid using regex
 def Check_Password(value):
     regex = re.compile(r'[A-Za-z0-9@#$%^&+=]{8,}')
     password = Check_String(value)
@@ -32,6 +35,7 @@ def Check_Password(value):
         return Check_Password(input("Invalid password, try Again:"))
 
 
+# Function to check if a username is unique and not already in use
 def Check_Username(username):
     username = Check_String(username)
     if not Is_Username_Unique(username):
@@ -41,6 +45,7 @@ def Check_Username(username):
         return username
 
 
+# Function to check if a username is unique in the database
 def Is_Username_Unique(username):
     try:
         connection = Db_Con.db_connector()
@@ -54,6 +59,7 @@ def Is_Username_Unique(username):
         return False  # return false on error
 
 
+# Function to validate user's answer input
 def check_answer_input(user_answer):
     try:
         user_answer = int(user_answer)
@@ -65,6 +71,7 @@ def check_answer_input(user_answer):
         return check_answer_input(input("Invalid input. Please enter a number between 1 and 4."))
 
 
+# Function to check if user's answer is correct based on question id and answer
 def is_answer_correct(q_id, user_answer):
     try:
         connection = Db_Con.db_connector()

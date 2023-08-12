@@ -5,6 +5,7 @@ import mysql.connector
 from datetime import date
 
 
+# Function to retrieve and display a set of quiz questions
 def display_question():
     connection = Db_Con.db_connector()
 
@@ -25,6 +26,7 @@ def display_question():
         print(f"Error: {err}")
 
 
+# Function to display a message and score after completing the quiz
 def display_score_message(total_correct):
     print("Quiz completed!")
     print(f"Your score: {total_correct}/5")
@@ -42,6 +44,7 @@ def display_score_message(total_correct):
     time.sleep(4)
 
 
+# Function to upload the user's quiz score to the database
 def upload_score(user_id, score):
     connection = Db_Con.db_connector()
 
@@ -69,6 +72,7 @@ def upload_score(user_id, score):
         connection.rollback()  # Rollback the changes on error
 
 
+# Function to retrieve quiz history for a specific user
 def get_quiz_history(user_id):
     connection = Db_Con.db_connector()
 
@@ -87,7 +91,7 @@ def get_quiz_history(user_id):
         print(f"Error: {err}")
         return []
 
-
+# Function to get the highest and lowest quiz scores from a list of scores
 def get_high_low_score(scores):
     min_score = None
     max_score = None

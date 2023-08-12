@@ -20,7 +20,7 @@ try:
             print(f"Error while dropping the database: {err}")
 
 
-    # creating a new database
+    # Creating a new database and its tables
     def create_database():
         try:
             with connection.cursor() as cursor:
@@ -39,6 +39,7 @@ try:
             connection.rollback()  # Rollback the changes on error
 
 
+    # Inserting question data into the questions table
     def insert_question_data():
         try:
             with connection.cursor() as cursor:
@@ -55,7 +56,7 @@ try:
             print(f"Error: {err}")
             connection.rollback()  # Rollback the changes on error
 
-
+    # Inserting correct answers into the correct_answers table
     def insert_correct_answer():
         try:
             with connection.cursor() as cursor:

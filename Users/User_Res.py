@@ -2,6 +2,7 @@ from DB import Db_Con
 import mysql
 
 
+# Function to register a new user
 def user_registration(user_info):
     # Establishing the database connection
     connection = Db_Con.db_connector()
@@ -12,6 +13,7 @@ def user_registration(user_info):
     try:
         with connection.cursor() as cursor:
             cursor.execute("USE python_TP_DB")
+            # SQL query to insert user information into the users table
             sql = "INSERT INTO users(user_name, first_name, last_name, email, password) value (%s, %s, %s, %s, %s)"
             values = (user_info['user_name'], user_info['first_name'], user_info['last_name'], user_info['email'],
                       user_info['password'])

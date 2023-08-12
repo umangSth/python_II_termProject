@@ -7,12 +7,13 @@ from Quiz import quiz
 from Users.User_Auth import session
 
 
+# Clear the terminal screen
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 
+# Clear the screen and display a message
 def clear_and_prompt(message):
-    # print("\n" * 50)
     # Clear the screen
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -23,12 +24,14 @@ def clear_and_prompt(message):
     print(message, end="")
 
 
+# Display a welcome message with the username
 def display_welcome_message(username):
     clear_and_prompt("\n__________________________________"
                      f"\nWelcome {username}, to Test your knowledge"
                      "\n__________________________________\n")
 
 
+# Prompt the user for their action choice
 def prompt_for_action():
     print("Please select an option:")
     print("1. Take a Test")
@@ -38,6 +41,7 @@ def prompt_for_action():
     return choice
 
 
+# Main loop for the command-line interface
 def main_cli_loop():
     while True:
         current_user = session()
@@ -57,6 +61,7 @@ def main_cli_loop():
             time.sleep(2)
 
 
+# Display and conduct the quiz
 def quiz_view():
     current_user = session()
     print("Your test will start now")
@@ -70,7 +75,7 @@ def quiz_view():
         return
     q_no = 1
     for question in questions:
-
+        # Extract question data
         q_id, q_text, ans_1, ans_2, ans_3, ans_4 = question
         options = [ans_1, ans_2, ans_3, ans_4]
         random.shuffle(options)
@@ -80,6 +85,7 @@ def quiz_view():
         for i, option in enumerate(options, start=1):
             print(f"{i}. {option}")
 
+        # Get user's answer and check correctness
         user_answer = ck.check_answer_input(input("Enter the number of your answer (1-4): "))
         if ck.is_answer_correct(q_id, options[user_answer - 1]):
             total_correct += 1
@@ -89,6 +95,7 @@ def quiz_view():
     quiz.upload_score(user_id, total_correct)
 
 
+# Display the user's quiz history
 def quiz_history_view():
     current_user = session()
     user_id = current_user[0]
