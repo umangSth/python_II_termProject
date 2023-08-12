@@ -1,13 +1,18 @@
 import mysql.connector  # importing mysql connector
 
-from DB import Db_Con
 from Data import questions_Data as q
 from Data import tables
 
 try:
     # Establishing the connection to mySql server
-    # Establishing the connection to mySql server
-    connection = Db_Con.db_connector()
+    try:
+        connection = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password=""
+        )
+    except mysql.connector.Error as err:
+        print(f"Error: {err}")
 
 
     # Function to drop the existing database if it exists
